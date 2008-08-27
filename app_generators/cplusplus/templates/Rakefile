@@ -1,0 +1,61 @@
+NAME = "<%= name %>"
+
+desc "Build the Project"
+task :default => :classes do
+  compile = "g++ -g "
+  Dir.glob("*.o").map {|file| compile += "#{file} "}
+  compile += "-o #{NAME}"
+  
+  puts compile
+  system(compile)
+end
+
+desc "Build Classes"
+task :classes do
+  Dir.glob("src/*.cpp").map do |file|
+    compile = "g++ -c -g #{file}"
+    puts compile
+    system(compile)
+  end
+end
+
+desc "Clean"
+task :clean do
+  Dir.glob("{*.o,*~,#{NAME}}").map {|file| puts "Removing #{file}"}
+  
+  remove = "rm -f *.o *~ #{NAME}"
+  system(remove)
+end
+
+desc "Test"
+task :test => :build_tests do
+  puts `test/test`
+end
+
+desc "Build Tests"
+task :build_tests do
+  # g++ tests.cpp -o test/test -lcppunit
+  compile = "g++ "
+  Dir.glob("test/*.cpp").map {|file| compile += "#{file} "}
+  compile += "-o test/test -lcppunit"
+  system(compile)
+end
+
+desc "Generate Makefile"
+task :makefile do
+  makefile = ""
+  dependencies = ""
+  
+  #Define Classes
+  Dir.glob("src/*.cpp").map do |file|
+    compile = "g++ -c -g #{file}"
+    task = "#{file.gsub('.cpp', '.o').gsub('src/', '')}"
+    dependencies += "#{task} "
+    makefile += "#{task}:\n\t#{compile}\n\n"
+  end
+  
+  makefile = "all:#{dependencies}\n\tg++ -g #{dependencies}-o #{NAME}\n\n" + makefile
+  makefile += "clean:\n\trm -f *.o *~ #{NAME}"
+  puts "Writing makefile"
+  File.open("makefile", "w+") {|file| file.syswrite(makefile)}
+end
