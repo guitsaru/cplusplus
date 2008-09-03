@@ -22,8 +22,8 @@ class FileGenerator < RubiGen::Base
       # m.template_copy_each ["template.rb", "template2.rb"]
       # m.file     "file",         "some_file_copied"
       # m.file_copy_each ["path/to/file", "path/to/file2"]
-      m.template "class.cpp", "src/#{name}.cpp"
-      m.template "class.h", "src/#{name}.h"
+      m.template "file.cpp", "src/#{name}.cpp"
+      m.template "file.h", "src/#{name}.h"
       m.template "test.cpp", "test/test_#{name}.cpp"
     end
   end

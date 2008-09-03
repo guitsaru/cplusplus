@@ -1,8 +1,8 @@
 require 'cplusplus/version'
 
-AUTHOR = 'FIXME full name'  # can also be an array of Authors
-EMAIL = "FIXME email"
-DESCRIPTION = "description of gem"
+AUTHOR = 'Matt Pruitt'  # can also be an array of Authors
+EMAIL = "guitsaru@gmail.com"
+DESCRIPTION = "generators for c++ projects."
 GEM_NAME = 'cplusplus' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'cplusplus' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"

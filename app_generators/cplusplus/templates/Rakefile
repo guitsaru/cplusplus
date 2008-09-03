@@ -21,9 +21,9 @@ end
 
 desc "Clean"
 task :clean do
-  Dir.glob("{*.o,*~,#{NAME}}").map {|file| puts "Removing #{file}"}
+  Dir.glob("{*.o,*~,#{NAME},test/test}").map {|file| puts "Removing #{file}."}
   
-  remove = "rm -f *.o *~ #{NAME}"
+  remove = "rm -f *.o *~ ._* src/._* #{NAME} test/test"
   system(remove)
 end
 
@@ -33,9 +33,10 @@ task :test => :build_tests do
 end
 
 desc "Build Tests"
-task :build_tests do
+task :build_tests => [:classes] do
   # g++ tests.cpp -o test/test -lcppunit
   compile = "g++ "
+  Dir.glob("*.o").map {|file| compile += "#{file} " unless file == "main.o"}
   Dir.glob("test/*.cpp").map {|file| compile += "#{file} "}
   compile += "-o test/test -lcppunit"
   system(compile)
@@ -55,7 +56,14 @@ task :makefile do
   end
   
   makefile = "all:#{dependencies}\n\tg++ -g #{dependencies}-o #{NAME}\n\n" + makefile
-  makefile += "clean:\n\trm -f *.o *~ #{NAME}"
-  puts "Writing makefile"
+  makefile += "clean:\n\trm -f *.o *~ ._* src/._* #{NAME} test/test"
+  puts "Writing makefile."
   File.open("makefile", "w+") {|file| file.syswrite(makefile)}
+end
+
+desc "Tar files"
+task :tar => [:clean, :makefile] do
+  puts `tar cvf #{NAME}.tar ../#{NAME}/makefile ../#{NAME}/src/*`
+  remove = `tar -tf #{NAME}.tar | grep ._`.gsub("\n", ' ')
+  system("tar --delete -f #{NAME}.tar #{remove}")
 end

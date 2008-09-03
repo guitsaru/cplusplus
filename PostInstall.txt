@@ -1,4 +1,3 @@
-
 For more information on cplusplus, see http://cplusplus.rubyforge.org
 
 NOTE: Change this information in PostInstall.txt 
