@@ -2,7 +2,7 @@ require 'cplusplus/version'
 
 AUTHOR = 'Matt Pruitt'  # can also be an array of Authors
 EMAIL = "guitsaru@gmail.com"
-DESCRIPTION = "generators for c++ projects."
+DESCRIPTION = "Generators for c++ projects."
 GEM_NAME = 'cplusplus' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'cplusplus' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
