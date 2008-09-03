@@ -1,6 +1,5 @@
-For more information on cplusplus, see http://cplusplus.rubyforge.org
+Run cplusplus project_name to generate a new C++ project.
 
-NOTE: Change this information in PostInstall.txt 
-You can also delete it if you don't want it.
+Run script/generate class class_name to generate a new class.
 
-
+Run script/generate file file_name to generate a new .cpp file.
