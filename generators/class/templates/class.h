@@ -16,16 +16,10 @@
 */
 class <%= name %>
 {
-  public:
-	/**
-	 * <%= name %> constructor
-	 */
-	<%= name %>();
-	/**
-	 * <%= name %> destructor
-	 */
-	~<%= name %>();
-	private:
+public:
+  <%= name %>();
+  ~<%= name %>();
+private:
 };
 
 #endif
