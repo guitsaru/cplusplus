@@ -15,11 +15,11 @@ Note, the makefile generated is very generic and will more than likely need to b
 
 == SYNOPSIS:
 
-  cplusplus project_name
-	script/generate class class_name
-	script/generate file file_name
-	
-	Build the project with Rake or generate a makefile with rake makefile.
+cplusplus project_name
+script/generate class class_name
+script/generate file file_name
+
+Build the project with Rake or generate a makefile with rake makefile.
 
 == REQUIREMENTS:
 
@@ -33,7 +33,7 @@ Note, the makefile generated is very generic and will more than likely need to b
 
 (The MIT License)
 
-Copyright (c) 2008 FIXME full name
+Copyright (c) 2008 Matt Pruitt
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
