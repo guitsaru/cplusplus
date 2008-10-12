@@ -1,5 +1,5 @@
 /**
- * @file NamedArray.cpp
+ * @file test_<%= name %>.cpp
  *
  * @author [Your Name]
  * @date <%= DateTime.now.strftime("%d %B %Y") %>
