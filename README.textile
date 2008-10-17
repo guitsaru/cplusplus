@@ -1,19 +1,19 @@
-= cplusplus
+h1. cplusplus
 
-* http://github.com/guitsaru/cplusplus
+http://github.com/guitsaru/cplusplus
 
-== DESCRIPTION:
+h2. Description
 
 Generators for C++ files.
 
-== FEATURES/PROBLEMS:
+h2. Features
 
 * Generates C++ files and class files.
 * Includes tests via cppunit.
 
 Note, the makefile generated is very generic and will more than likely need to be changed to to use with any sufficiently sized project.
 
-== SYNOPSIS:
+h2. Synopsis
 
 cplusplus project_name
 script/generate class class_name
@@ -21,15 +21,15 @@ script/generate file file_name
 
 Build the project with Rake or generate a makefile with rake makefile.
 
-== REQUIREMENTS:
+h2. Requirements
 
 * Need to have cppunit installed for unit tests
 
-== INSTALL:
+h2. Install
 
 * sudo gem install cplusplus
 
-== LICENSE:
+h2. License
 
 (The MIT License)
 
